@@ -125,6 +125,7 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 import os
+import sys
 
 # hardcode paths to tokenizer and label maker
 dirname = os.path.dirname(__file__)
@@ -300,6 +301,11 @@ if __name__ == '__main__':
                       len(total_results['Rhinovirus'])+\
                       len(total_results['Sars_cov_2'])+\
                       len(total_results['Human'])
+                      
+    if len(processed_reads) == 0:
+        print('None processed reads')
+        sys.exit()
+    
     
     print()
     print('From a total of '+str(total_sequences)+' reads, '+str(total_sequences - processed_reads)+\
@@ -322,7 +328,7 @@ if __name__ == '__main__':
     percentage = {}
     for classes in total_results:
         number_class = len(total_results[classes])
-        percentage[classes] = ( number_class/ processed_reads) *100
+        percentage[classes] = (number_class/processed_reads) *100
     
     df_results['# predicted reads (%)'] = [percentage['Sars_cov_2'],
                                            percentage['Coronaviridae'],
