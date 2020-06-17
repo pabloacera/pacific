@@ -24,7 +24,10 @@ PACIFIC implements deep learning to classify RNA sequencing reads into human, SA
 ```
 git clone https://github.com/pabloacera/pacific.git
 cd pacific;
-python ./scripts/PACIFIC.py -i ./testdata/testdata.fa -m ./model/pacific.01.pacific_9mers_nonGPU.h5  -t ./model/tokenizer.01.pacific_9mers.pickle -l ./model/label_maker.01.pacific_9mers.pickle
+python ./scripts/PACIFIC.py -i ./testdata/testdata.fa \
+                            -m ./model/pacific.01.pacific_9mers_nonGPU.h5  \
+                            -t ./model/tokenizer.01.pacific_9mers.pickle \
+                            -l ./model/label_maker.01.pacific_9mers.pickle
 !!!!!!Add test data to check if it works for a user - maybe in a "testdata" directory as above
 ```
 !!!!!!!Describe expected output
